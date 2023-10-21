@@ -19,7 +19,7 @@ for ($i = 0; $i < 5; $i++) {
 }
 
 echo "Array: <br/>";
-echo var_dump($array);
+var_dump($array);
 echo "<br/>";
 echo "<br/>";
 
@@ -31,9 +31,8 @@ foreach ($array as $i => $value) {
 
 $average = $total / sizeof($array);
 
-echo "Total de los elementos del array: <br/>";
-echo var_dump($total);
-echo "<br/>";
+echo "Total de los elementos del array: " . $total;
+echo "<br/><br/>";
 
 $result = "El promedio es ";
 
@@ -46,7 +45,5 @@ if ($average > 6) {
 }
 
 
-echo $result . "<br/>";
-echo "Promedio de los elementos: <br/>";
-echo $average;
-echo "<br/>";
+echo $result . "<br/><br/>";
+echo "Promedio de los elementos: " . $average;

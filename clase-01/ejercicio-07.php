@@ -46,5 +46,5 @@ echo "Con foreach: <br/>";
 echo "<br/>";
 
 foreach ($array as $key => $value) {
-  echo $array[$key] . "<br/>";
+  echo $value . "<br/>";
 }
