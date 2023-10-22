@@ -13,12 +13,11 @@ Ejemplo: Se recibe la palabra “HOLA” y luego queda “ALOH”.
 Berges Facundo
 */
 
-
-function invertirPalabra($palabra) 
+function invertirPalabra($palabra)
 {
   $invertido = "";
 
-  for ($i = sizeof($palabra) - 1; $i >= 0; $i--) { 
+  for ($i = sizeof($palabra) - 1; $i >= 0; $i--) {
     $invertido = $invertido . $palabra[$i];
   }
 
@@ -33,6 +32,3 @@ $pReverse = invertirPalabra($pArray);
 
 echo "<h1>Palabra: " . $p . "</h1>";
 echo "<h1>Palabra invertida: " . $pReverse . "</h1>";
-
-
-?>

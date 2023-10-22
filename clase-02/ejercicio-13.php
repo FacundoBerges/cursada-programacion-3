@@ -8,6 +8,7 @@ Crear una función que reciba como parámetro un string ($palabra) y un entero (
 La función validará que la cantidad de caracteres que tiene $palabra no supere a $max y además
 deberá determinar si ese valor se encuentra dentro del siguiente listado de palabras válidas:
 “Recuperatorio”, “Parcial” y “Programacion”. 
+
 Los valores de retorno serán: 
   1 si la palabra pertenece a algún elemento del listado.
   0 en caso contrario.
@@ -51,6 +52,3 @@ echo "<h1>Palabra 3: " . $p3 . " - Pertenece al listado y su largo es menor a 6?
 echo "<h1>Palabra 2: " . $p2 . " - Pertenece al listado y su largo es menor a 15? " . cantidadCaracteres($p2, 15) . "</h1>";
 echo "<h1>Palabra 3: " . $p3 . " - Pertenece al listado y su largo es menor a 15? " . cantidadCaracteres($p3, 15) . "</h1>";
 echo "<h1>Palabra 4: " . $p4 . " - Pertenece al listado y su largo es menor a 6? " . cantidadCaracteres($p4, 6) . "</h1>";
-
-
-?>

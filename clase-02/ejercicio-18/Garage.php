@@ -19,27 +19,59 @@ class Garage
     $this->_autos = [];
   }
 
-  private function _getCarValues()
+  private function _GetCarValues()
   {
     $autos = "";
-  
+
     if (sizeof($this->_autos) == 0) {
       $autos = "No hay autos disponibles";
     } else {
-      $autos = $autos . "<br/>";
-  
-      foreach ($this->_autos as $key => Auto $auto) {
-        $autos = $autos . $auto . ", ";
+      foreach ($this->_autos as $auto) {
+        $autos = $autos . " - " . Auto::MostrarAuto($auto) . "<br/>";
       }
     }
+
+    return $autos;
   }
 
   public function MostrarGarage()
   {
-    $autos = $this->_getCarValues();
+    $respuesta = "";
 
-    echo "Razon Social: $this->_razonSocial<br/>
-          Precio por hora: $" . (number_format($this->_precioPorHora, 2, ',', ".")) . "<br/>
-          Autos: " . "<br/>" . $autos;
+    $autos = $this->_GetCarValues();
+
+
+    $respuesta = $respuesta . "Razon Social: " . $this->_razonSocial . "<br/>";
+    if ($this->_precioPorHora > 0) {
+      $respuesta = $respuesta . "Precio por hora: $" . (number_format($this->_precioPorHora, 2, ',', ".")) . "<br/>";
+    }
+    $respuesta = $respuesta . "Autos: " . "<br/>" . $autos;
+
+    return $respuesta;
+  }
+
+  public function Equals($auto)
+  {
+    return array_search($auto, $this->_autos) > 0;
+  }
+
+  public function Add($auto)
+  {
+    if (!$this->Equals($auto)) {
+      array_push($this->_autos, $auto);
+      return "Auto agregado correctamente.";
+    } else {
+      return "El auto ya se encuentra cargado en el garage.";
+    }
+  }
+
+  public function Remove($auto)
+  {
+    if ($this->Equals($auto)) {
+      unset($this->_autos[array_search($auto, $this->_autos)]);
+      return "Auto removido correctamente";
+    } else {
+      return "El auto no se encuentra cargado en el garage.";
+    }
   }
 }

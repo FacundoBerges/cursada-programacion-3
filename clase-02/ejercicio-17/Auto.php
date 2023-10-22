@@ -1,6 +1,6 @@
 <?php
 
-class Auto 
+class Auto
 {
   private $_color;
   private $_precio;
@@ -12,13 +12,11 @@ class Auto
     $this->_marca = $marca;
     $this->_color = $color;
 
-    if(is_numeric($precio))
-    {
+    if (is_numeric($precio) && $precio >= 0) {
       $this->_precio = $precio;
     }
 
-    if(Auto::_fechaValida($fecha))
-    {
+    if (Auto::_FechaValida($fecha)) {
       $this->_fecha = date("d-m-Y", strtotime($fecha));
     }
   }
@@ -62,14 +60,13 @@ class Auto
 
   public function setFecha($fecha)
   {
-    if(Auto::_fechaValida($fecha)) 
-    {
+    if (Auto::_FechaValida($fecha)) {
       $this->_fecha = $fecha;
     }
   }
 
 
-  private static function _fechaValida($fecha)
+  private static function _FechaValida($fecha)
   {
     return strtotime($fecha) >= 1;
   }
@@ -77,8 +74,7 @@ class Auto
 
   public function AgregarImpuestos($impuesto)
   {
-    if(is_numeric($this->_precio) && is_numeric($impuesto))
-    {
+    if (is_numeric($this->_precio) && is_numeric($impuesto)) {
       $this->_precio += $impuesto;
     }
   }
@@ -90,13 +86,11 @@ class Auto
     $infoAuto = $infoAuto . "Marca: " . $auto->getMarca();
     $infoAuto = $infoAuto . ", color: " . $auto->getColor();
 
-    if(! is_null( $auto->getPrecio() ))
-    {
+    if (!is_null($auto->getPrecio())) {
       $infoAuto = $infoAuto . ", precio: " . $auto->getPrecio();
     }
 
-    if(! is_null( $auto->getFecha() ))
-    {
+    if (!is_null($auto->getFecha())) {
       $infoAuto = $infoAuto . ", fecha: " . $auto->getFecha();
     }
 
@@ -105,18 +99,15 @@ class Auto
 
   public function Equals($otroAuto)
   {
-    return (
-      $otroAuto != null && 
+    return ($otroAuto != null &&
       $otroAuto->getMarca() == $this->getMarca()
     );
   }
 
   public static function Add($unAuto, $otroAuto)
   {
-    return 
-      ($unAuto->Equals($otroAuto) && $unAuto->getColor() == $otroAuto->getColor()) 
-      ? $unAuto->getPrecio() + $otroAuto->getPrecio() 
+    return ($unAuto->Equals($otroAuto) && $unAuto->getColor() == $otroAuto->getColor())
+      ? $unAuto->getPrecio() + $otroAuto->getPrecio()
       : 0;
   }
-
 }

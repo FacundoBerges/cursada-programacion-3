@@ -17,10 +17,13 @@ Realizar un constructor capaz de poder instanciar objetos pasándole como parám
 
 Realizar un método de instancia llamado “AgregarImpuestos”, que recibirá un doble por 
 parámetro y que se sumará al precio del objeto.
+
 Realizar un método de clase llamado “MostrarAuto”, que recibirá un objeto de tipo “Auto”
 por parámetro y que mostrará todos los atributos de dicho objeto.
+
 Crear el método de instancia “Equals” que permita comparar dos objetos de tipo “Auto”. Sólo
 devolverá TRUE si ambos “Autos” son de la misma marca.
+
 Crear un método de clase, llamado “Add” que permita sumar dos objetos “Auto” (sólo si son
 de la misma marca, y del mismo color, de lo contrario informarlo) y que retorne un Double con
 la suma de los precios o cero si no se pudo realizar la operación.
@@ -42,6 +45,7 @@ Berges Facundo
 */
 
 require_once("./Auto.php");
+
 
 $auto1 = new Auto("Ford", "Rojo");
 $auto2 = new Auto("Ford", "Azul");
@@ -73,13 +77,8 @@ echo "<h2>Auto 1 es igual a Auto 5: " . ($auto1->Equals($auto5) ? "Si" : "No") .
 echo "<br/>";
 
 echo "<h1>Autos impares:</h1>";
-echo  "<ul>" . 
-        "<li>Auto 1: " . Auto::MostrarAuto($auto1) . "</li>" . 
-        "<li>Auto 3: " . Auto::MostrarAuto($auto3) . "</li>" . 
-        "<li>Auto 5: " . Auto::MostrarAuto($auto5) . "</li>" . 
-      "</ul>";
-
-
-
-
-
+echo "<ul>" .
+  "<li>Auto 1: " . Auto::MostrarAuto($auto1) . "</li>" .
+  "<li>Auto 3: " . Auto::MostrarAuto($auto3) . "</li>" .
+  "<li>Auto 5: " . Auto::MostrarAuto($auto5) . "</li>" .
+  "</ul>";

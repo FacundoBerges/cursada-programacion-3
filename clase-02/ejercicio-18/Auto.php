@@ -12,11 +12,11 @@ class Auto
     $this->_marca = $marca;
     $this->_color = $color;
 
-    if (is_numeric($precio)) {
+    if (is_numeric($precio) && $precio >= 0) {
       $this->_precio = $precio;
     }
 
-    if (Auto::_fechaValida($fecha)) {
+    if (Auto::_FechaValida($fecha)) {
       $this->_fecha = date("d-m-Y", strtotime($fecha));
     }
   }
@@ -60,13 +60,13 @@ class Auto
 
   public function setFecha($fecha)
   {
-    if (Auto::_fechaValida($fecha)) {
+    if (Auto::_FechaValida($fecha)) {
       $this->_fecha = $fecha;
     }
   }
 
 
-  private static function _fechaValida($fecha)
+  private static function _FechaValida($fecha)
   {
     return strtotime($fecha) >= 1;
   }
