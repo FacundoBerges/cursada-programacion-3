@@ -52,7 +52,7 @@ class Garage
 
   public function Equals($auto)
   {
-    return array_search($auto, $this->_autos) > 0;
+    return array_search($auto, $this->_autos) >= 0;
   }
 
   public function Add($auto)
