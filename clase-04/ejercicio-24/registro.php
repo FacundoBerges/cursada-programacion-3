@@ -20,7 +20,12 @@ if (isset($_POST["nombre"]) && isset($_POST["clave"]) && isset($_POST["mail"])) 
 
     if (move_uploaded_file($_FILES['imagen']['tmp_name'],  Usuario::$_DESTINO_FOTOS . $nombre_archivo)) {
       $response["archivo"] = "El archivo ha sido cargado correctamente.";
-      $response["respuesta"] = Usuario::Guardar($usuario);
+
+      if (Usuario::Guardar($usuario) !== false) {
+        $response["respuesta"] = "Usuario guardado con exito.";
+      } else {
+        $response["respuesta"] = "Error al guardar usuario.";
+      }
     } else {
       $response["errorArchivo"] = "Ocurrió algún error al subir el fichero. No pudo guardarse.";
     }

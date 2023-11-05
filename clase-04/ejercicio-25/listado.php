@@ -1,0 +1,23 @@
+<?php
+
+
+$response = array();
+
+
+if (isset($_GET["listado"])) {
+  if ($_GET["listado"] == "usuarios") {
+    require_once("./modelo/Usuario.php");
+
+    $response = Usuario::Leer();
+  } else if ($_GET["listado"] == "productos") {
+    require_once("./modelo/Producto.php");
+
+    $response = Producto::Leer();
+  } else {
+    $response["error"] = 'Listado invalido.';
+  }
+} else {
+  $response["error"] = 'Faltan parametros.';
+}
+
+echo json_encode($response);

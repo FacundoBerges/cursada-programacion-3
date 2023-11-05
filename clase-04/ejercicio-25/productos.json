@@ -1,0 +1,18 @@
+[
+  {
+    "id": 5647,
+    "codigoBarras": "123456",
+    "nombre": "harina",
+    "tipo": "almacen",
+    "stock": "3",
+    "precio": "10"
+  },
+  {
+    "id": 8122,
+    "codigoBarras": "123321",
+    "nombre": "fideos",
+    "tipo": "almacen",
+    "stock": 6,
+    "precio": "7"
+  }
+]
