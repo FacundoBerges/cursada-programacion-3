@@ -1,6 +1,7 @@
 *.xml
 *.iml
 **/.idea
+trabajo-practico_la-comanda/
 
 # Default ignored files
 /shelf/
